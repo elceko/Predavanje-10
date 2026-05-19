@@ -47,10 +47,23 @@ h1 {
 
 /* TODO: Stilizirati svaki <li> element liste
    Hint: border-bottom, padding, display flex između teksta i gumba */
+#lista li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+}
+
 
 /* TODO: Stilizirati .gumb-obrisi
    Hint: crvena pozadina (#dc3545), mali gumb, float right ili margin-left: auto */
-
+   .gumb-obrisi {
+    background-color: #dc3545;
+    color: white;
+    float: right;
+    margin-left: auto;
+    border: none;
+   }
 #broj-stavki {
     color: #666;
     font-style: italic;

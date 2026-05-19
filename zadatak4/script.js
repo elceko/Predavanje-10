@@ -24,55 +24,64 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // TODO: Dohvatite elemente
-    // const inputSekunde   = document.getElementById('sekunde');
-    // const gumbStart      = document.getElementById('gumb-start');
-    // const gumbStop       = document.getElementById('gumb-stop');
-    // const prikazVremena  = document.getElementById('prikaz-vremena');
-    // const porukaIsteka   = document.getElementById('poruka-isteka');
+     const inputSekunde   = document.getElementById('sekunde');
+     const gumbStart      = document.getElementById('gumb-start');
+     const gumbStop       = document.getElementById('gumb-stop');
+     const gumbReset      = document.getElementById('gumb-reset');
+     const prikazVremena  = document.getElementById('prikaz-vremena');
+     const porukaIsteka   = document.getElementById('poruka-isteka');
 
     // Varijabla za ID intervala – MORA biti izvan event listenera!
     // let intervalID = null;
     // let preostaloVrijeme = 0;
 
     // TODO: Event listener za Start
-    // gumbStart.addEventListener('click', function () {
-    //     preostaloVrijeme = parseInt(inputSekunde.value);
-    //     if (isNaN(preostaloVrijeme) || preostaloVrijeme <= 0) {
-    //         alert('Unesite pozitivan broj!');
-    //         return;
-    //     }
+    gumbStart.addEventListener('click', function () {
+         preostaloVrijeme = parseInt(inputSekunde.value);
+         if (isNaN(preostaloVrijeme) || preostaloVrijeme <= 0) {
+             alert('Unesite pozitivan broj!');
+             return;
+         }
     //
     //     // Sakrij poruku isteka (ako je bila prikazana od ranije)
-    //     porukaIsteka.classList.add('skriveno');
+         porukaIsteka.classList.add('skriveno');
     //
     //     // Ažuriraj prikaz
-    //     prikazVremena.textContent = preostaloVrijeme;
+         prikazVremena.textContent = preostaloVrijeme;
     //
     //     // Onemogući Start, omogući Stop
-    //     gumbStart.disabled = true;
-    //     gumbStop.disabled  = false;
+         gumbStart.disabled = true;
+         gumbStop.disabled  = false;
     //
     //     // Pokreni interval
-    //     intervalID = setInterval(function () {
-    //         preostaloVrijeme--;
-    //         prikazVremena.textContent = preostaloVrijeme;
+         intervalID = setInterval(function () {
+             preostaloVrijeme--;
+             prikazVremena.textContent = preostaloVrijeme;
     //
-    //         if (preostaloVrijeme <= 0) {
-    //             clearInterval(intervalID);
-    //             porukaIsteka.classList.remove('skriveno');
-    //             gumbStart.disabled = false;
-    //             gumbStop.disabled  = true;
-    //         }
-    //     }, 1000);
-    // });
+             if (preostaloVrijeme <= 0) {
+                 clearInterval(intervalID);
+                 porukaIsteka.classList.remove('skriveno');
+                 gumbStart.disabled = false;
+                 gumbStop.disabled  = true;
+             }
+         }, 1000);
+     });
 
     // TODO: Event listener za Stop
-    // gumbStop.addEventListener('click', function () {
-    //     clearInterval(intervalID);
-    //     gumbStart.disabled = false;
-    //     gumbStop.disabled  = true;
-    // });
+     gumbStop.addEventListener('click', function () {
+         clearInterval(intervalID);
+         gumbStart.disabled = false;
+         gumbStop.disabled  = true;
+     });
 
     // TODO (BONUS): Gumb Reset – vraća sve na početno stanje
+     gumbReset.addEventListener('click', function () {
+        clearInterval(intervalID);
+        intervalID = null;
+        preostaloVrijeme = 0;
+        prikazVremena.textContent = preostaloVrijeme;
+        gumbStart.disabled = false;
+        gumbStop.disabled  = true;
+     });
 
 });

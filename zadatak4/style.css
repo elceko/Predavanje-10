@@ -85,6 +85,12 @@ h1 {
 
 /* TODO: Dodajte animaciju ili promjenu boje kad je < 5 sekundi (klasa .hitno) */
 /* .hitno { color: #dc3545; } */
+.hitno {
+    color: #dc3545;
+    if (preostaloVrijeme < 5) {
+        color: #007bff;
+    }
+}
 
 .skriveno {
     display: none;

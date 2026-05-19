@@ -23,45 +23,56 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // TODO: Dohvatite formu
-    // const forma = document.getElementById('forma');
+    const forma = document.getElementById('forma');
 
     // TODO: Dohvatite inpute
-    // const inputIme     = document.getElementById('ime');
-    // const inputEmail   = document.getElementById('email');
-    // const inputLozinka = document.getElementById('lozinka');
+    const inputIme     = document.getElementById('ime');
+    const inputEmail   = document.getElementById('email');
+    const inputLozinka = document.getElementById('lozinka');
 
     // TODO: Dohvatite elemente za greške (koje ste dodali u HTML)
-    // const greskaIme     = document.getElementById('greska-ime');
-    // const greskaEmail   = document.getElementById('greska-email');
-    // const greskaLozinka = document.getElementById('greska-lozinka');
+    const greskaIme     = document.getElementById('greska-ime');
+    const greskaEmail   = document.getElementById('greska-email');
+    const greskaLozinka = document.getElementById('greska-lozinka');
 
     // TODO: Dohvatite element za poruku uspjeha
-    // const poruka = document.getElementById('poruka-uspjeha');
+    const poruka = document.getElementById('poruka-uspjeha');
 
     // TODO: Dodajte event listener na submit
-    // forma.addEventListener('submit', function (event) {
-    //     event.preventDefault(); // spriječava reload stranice
+    forma.addEventListener('submit', function (event) {
+    event.preventDefault(); // spriječava reload stranice
     //
-    //     let imaGresaka = false;
+    let imaGresaka = false;
     //
     //     // Provjera polja Ime
-    //     if (inputIme.value.trim() === '') {
-    //         greskaIme.textContent = 'Ime je obavezno!';
-    //         imaGresaka = true;
-    //     } else {
-    //         greskaIme.textContent = '';
-    //     }
+         if (inputIme.value.trim() === '') {
+            greskaIme.textContent = 'Ime je obavezno!';
+             imaGresaka = true;
+         } else {
+             greskaIme.textContent = '';
+         }
     //
     //     // TODO: Provjera polja Email (mora sadržavati '@')
-    //
+        if (!inputEmail.value.inclues('@')) {
+            greskaEmail.textContent = 'Email mora sadržavati @!';
+            imaGresaka = true;
+        } else {
+            greskaEmail.textContent = '';
+        }
     //     // TODO: Provjera polja Lozinka (minimalno 6 znakova)
-    //
+        if (inputLozinka.value.length < 6) {
+            greskaLozinka.textContent = 'Lozinka mora imati najmanje 6 znakova!';
+            imaGresaka = true;
+        } else {
+            greskaLozinka.textContent = '';
+        }
+    
     //     // Ako nema grešaka – prikaži poruku uspjeha
-    //     if (!imaGresaka) {
-    //         poruka.textContent = 'Forma je uspješno poslana!';
-    //     } else {
-    //         poruka.textContent = '';
-    //     }
-    // });
+         if (!imaGresaka) {
+             poruka.textContent = 'Forma je uspješno poslana!';
+         } else {
+             poruka.textContent = '';
+         }
+    });
 
 });

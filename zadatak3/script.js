@@ -21,52 +21,52 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // TODO: Dohvatite potrebne elemente
-    // const input       = document.getElementById('unos-tekst');
-    // const gumbDodaj   = document.getElementById('gumb-dodaj');
-    // const lista       = document.getElementById('lista');
-    // const brojStavki  = document.getElementById('broj-stavki');
+    const input       = document.getElementById('unos-tekst');
+    const gumbDodaj   = document.getElementById('gumb-dodaj');
+    const lista       = document.getElementById('lista');
+    const brojStavki  = document.getElementById('broj-stavki');
 
     // POMOĆNA FUNKCIJA – ažurira prikaz broja stavki
-    // function azurirajBroj() {
-    //     brojStavki.textContent = 'Broj stavki: ' + lista.children.length;
-    // }
+    function azurirajBroj() {
+         brojStavki.textContent = 'Broj stavki: ' + lista.children.length;
+     }
 
     // POMOĆNA FUNKCIJA – dodaje novu stavku
-    // function dodajStavku() {
-    //     const tekst = input.value.trim();
-    //     if (tekst === '') return; // ne dodaj praznu stavku
-    //
+     function dodajStavku() {
+         const tekst = input.value.trim();
+         if (tekst === '') return; // ne dodaj praznu stavku
+    
     //     // Kreiraj <li> element
-    //     const li = document.createElement('li');
+         const li = document.createElement('li');
     //
     //     // Kreiraj <span> za tekst stavke
-    //     const span = document.createElement('span');
-    //     span.textContent = tekst;
+         const span = document.createElement('span');
+         span.textContent = tekst;
     //
     //     // TODO: Kreirajte <button> za brisanje s klasom 'gumb-obrisi'
-    //     // const gumbObrisi = document.createElement('button');
-    //     // gumbObrisi.textContent = 'Obriši';
-    //     // gumbObrisi.classList.add('gumb-obrisi');
-    //     // gumbObrisi.addEventListener('click', function () {
-    //     //     li.remove();
-    //     //     azurirajBroj();
-    //     // });
+         const gumbObrisi = document.createElement('button');
+          gumbObrisi.textContent = 'Obriši';
+          gumbObrisi.classList.add('gumb-obrisi');
+          gumbObrisi.addEventListener('click', function () {
+              li.remove();
+              azurirajBroj();
+          });
     //
     //     // Složi elemente zajedno
-    //     // li.appendChild(span);
-    //     // li.appendChild(gumbObrisi);
-    //     // lista.appendChild(li);
-    //
-    //     input.value = ''; // isprazni input
-    //     // azurirajBroj();
-    // }
+          li.appendChild(span);
+          li.appendChild(gumbObrisi);
+          lista.appendChild(li);
+    
+         input.value = ''; // isprazni input
+          azurirajBroj();
+     }
 
     // TODO: Event listener za gumb Dodaj
-    // gumbDodaj.addEventListener('click', dodajStavku);
+     gumbDodaj.addEventListener('click', dodajStavku);
 
     // TODO (BONUS): Dodaj stavku i pritiskom Enter tipke
-    // input.addEventListener('keydown', function (event) {
-    //     if (event.key === 'Enter') dodajStavku();
-    // });
+     input.addEventListener('keydown', function (event) {
+         if (event.key === 'Enter') dodajStavku();
+     });
 
 });

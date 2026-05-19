@@ -22,25 +22,28 @@
             <label for="ime">Ime:</label>
             <input type="text" id="ime" placeholder="Unesite ime">
             <!-- TODO: Ispod dodajte <span> za poruku greške, npr. id="greska-ime" -->
+                <span id="greska-ime"></span>
         </div>
 
         <div class="polje">
             <label for="email">Email:</label>
             <input type="text" id="email" placeholder="Unesite email">
             <!-- TODO: Ispod dodajte <span> za poruku greške, npr. id="greska-email" -->
+                <span id="greska-email"></span>
         </div>
 
         <div class="polje">
             <label for="lozinka">Lozinka:</label>
             <input type="password" id="lozinka" placeholder="Minimalno 6 znakova">
             <!-- TODO: Ispod dodajte <span> za poruku greške, npr. id="greska-lozinka" -->
+            <span id="greska-lozinka"></span>
         </div>
 
-        <button type="submit">Pošalji</button>
+        <button type="submit" onclick="validirajFormu(event)">Pošalji</button>
     </form>
 
     <!-- TODO: Dodajte <p> element za poruku uspjeha, npr. id="poruka-uspjeha" -->
-
+    <p id="poruka-uspjeha"></p>
     <script src="script.js"></script>
 </body>
 </html>
